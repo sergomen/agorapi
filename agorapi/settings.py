@@ -137,8 +137,8 @@ STATICFILES_DIRS = (
 )
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'media/avatar')
-MEDIA_URL = '/media/'
+# MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'media/avatar')
+# MEDIA_URL = '/media/'
 CLOUDINARY_STORAGE = {
     'CLOUD_NAME': env('CLOUD_NAME'),
     'API_KEY': env('API_KEY'),
