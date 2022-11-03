@@ -12,7 +12,7 @@ def get_default_links():
          "github":"github.com/username"}
 
 class Advocate(models.Model):
-    profile_pic = models.ImageField(upload_to='avatar/', default='/avatar/default.png', blank=True)
+    profile_pic = models.ImageField(upload_to='advocates/', default='/advocates/default.png', blank=True)
     # username = models.OneToOneField(User, on_delete=models.CASCADE, related_name="username", null=True)
     username = models.CharField(max_length=30, unique=True, null=True)
     name = models.CharField(max_length=256, default='')
@@ -29,9 +29,9 @@ class Advocate(models.Model):
 
 class Company(models.Model):
     name = models.CharField(max_length=256, default='')
-    logo = models.ImageField(upload_to='logo/', default='/logo/default.png', blank=True)
+    logo = models.ImageField(upload_to='companies/', default='/companies/default.png', blank=True)
     summary = models.TextField(default='')
-    href = URLOrRelativeURLField(default='/companies/id')
+    href = URLOrRelativeURLField(default='/companies/id', null=True, blank=True)
     advocate = models.ManyToManyField(Advocate, blank=True, related_name="advocates")
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
